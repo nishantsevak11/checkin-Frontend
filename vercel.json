@@ -1,9 +1,22 @@
 {
-    "version": 2,
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/.*",
+      "dest": "/api"
+    },
+    {
+      "src": "/.*",
+      "dest": "/",
+      "headers": {
+        "Cache-Control": "no-cache"
       }
-    ]
-  }
+    }
+  ]
+}
